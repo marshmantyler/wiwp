@@ -1,8 +1,6 @@
 # Wishin' I Was Phishin' (WIWP)
 
-> **A lightweight, automated phishing triage and ChatOps pipeline designed to combat SOC alert fatigue.**
-
-WIWP is a continuous background daemon that monitors employee-reported phishing inboxes, automatically enriches Indicators of Compromise (IoCs) using VirusTotal, leverages Groq's high-speed LLMs for deterministic threat analysis, and pushes color-coded, actionable alerts directly to your SOC's Discord channel.
+WIWP is a lightweight, continuous background daemon that monitors employee-reported phishing inboxes, automatically enriches Indicators of Compromise (IoCs) using VirusTotal, leverages Groq's high-speed LLMs for deterministic threat analysis, and pushes color-coded, actionable alerts directly to your SOC's Discord channel.
 
 ---
 
@@ -101,5 +99,3 @@ sudo systemctl start wiwp.service
 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPLv3). See the LICENSE file for details.
-
-
