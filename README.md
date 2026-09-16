@@ -66,20 +66,19 @@ python check_folders.py
 The script will output the exact internal folder names for your account. Copy the names of your Inbox and Spam folders, and update the IMAP_FOLDERS variable in your .env file as a comma-separated list:
 Example: IMAP_FOLDERS="INBOX,INBOX/spam"
 
-Usage
-
-To run the WIWP daemon locally, simply execute the main script:
-```Bash
+## Usage
+To run the WIWP daemon locally, execute the main script from your terminal:
 
 python main.py
-```
-You should see console output indicating the bot has logged into Discord, initialized the SQLite database, and started the SOC Pipeline Loop.
-Deployment (Raspberry Pi / Linux)
 
-WIWP is highly lightweight and perfect for running on a Raspberry Pi or a small Linux VPS. It is highly recommended to daemonize the script using systemd so it runs continuously in the background and restarts automatically on reboot.
+You should see console output indicating the bot has successfully logged into Discord, initialized the local SQLite database, and started the continuous SOC Pipeline Loop.
+## Deployment (Raspberry Pi / Linux)
+WIWP is highly lightweight and optimized to run seamlessly on a Raspberry Pi or a small Linux VPS. To ensure it runs continuously in the background and automatically restarts upon system reboot, it is highly recommended to daemonize the script using systemd.
+1. Create a systemd service file:
 
-Example wiwp.service snippet:
-Ini, TOML
+sudo nano /etc/systemd/system/wiwp.service
+
+2. Paste the following configuration snippet (adjust paths and user as necessary):
 
 [Unit]
 Description=WIWP Phishing Triage Daemon
@@ -94,6 +93,13 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 
-License
+3. Enable and start your new background service:
 
+sudo systemctl daemon-reload
+sudo systemctl enable wiwp.service
+sudo systemctl start wiwp.service
+
+## License
 This project is licensed under the GNU General Public License v3.0 (GPLv3). See the LICENSE file for details.
+
+
